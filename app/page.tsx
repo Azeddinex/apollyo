@@ -1,4 +1,4 @@
-"use client"
+use client
 import { useState, useEffect } from "react"
 import { Search, Loader2, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -122,18 +122,19 @@ export default function AppollyoApp() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-7xl">
-        <div className="text-center mb-8 sm:mb-12">
-          <div className="flex items-center justify-center mb-3 sm:mb-4">
-            <ApollyoLogo className="w-10 h-10 sm:w-14 sm:h-14" />
+        {/* شعار وشرح في الأعلى ومركزان دائماً */}
+        <header className="flex flex-col items-center justify-start pt-10 pb-6">
+          <ApollyoLogo className="w-10 h-10 sm:w-14 sm:h-14 mb-2" />
+          <div className="text-center mt-2">
+            <p className="text-sm sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+              Advanced Word Discovery Platform with AI-Powered Intelligence
+            </p>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-2">
+              Speed Mode & Hyper Mode for Maximum Flexibility
+            </p>
           </div>
-          <p className="text-sm sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            Advanced Word Discovery Platform with AI-Powered Intelligence
-          </p>
-          <p className="text-xs sm:text-sm text-muted-foreground mt-2">
-            Speed Mode & Hyper Mode for Maximum Flexibility
-          </p>
-        </div>
-
+        </header>
+        {/* باقي الصفحة كما هو */}
         {error && (
           <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200">
             <div className="flex items-start gap-2 sm:gap-3">
@@ -207,12 +208,12 @@ export default function AppollyoApp() {
 
                 <Button onClick={handleSearch} disabled={isSearching} className="w-full text-xs sm:text-sm" size="lg">
                   {isSearching ? (
-                    <>
+                    <> 
                       <Loader2 className="w-3 h-3 sm:w-4 sm:h-4 mr-2 animate-spin" />
                       Searching...
                     </>
                   ) : (
-                    <>
+                    <> 
                       <Search className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                       Start Search
                     </>
