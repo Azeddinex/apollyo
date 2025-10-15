@@ -29,3 +29,15 @@
 - [x] تم إنشاء Pull Request بنجاح: https://github.com/Azeddinex/apollyo/pull/1
 - [x] تم تطبيق جميع التحسينات ذات الأولوية العالية والمتوسطة
 - [x] تم توثيق جميع التغييرات بشكل شامل
+
+## 6. دمج نظام الزاحف المتقدم (Advanced Crawler Integration)
+- [x] تحليل الشيفرة المقدمة (Python Web Crawler)
+- [x] إنشاء خطة تكييف شاملة (ADVANCED_CRAWLER_INTEGRATION.md)
+- [x] إنشاء البنية الأساسية (types.ts)
+- [x] تنفيذ نظام الفلاتر الأساسي (base-filter.ts, text-filter.ts)
+- [ ] إكمال باقي الفلاتر (URL, Email, Quality, Semantic)
+- [ ] تنفيذ محرك الزحف الرئيسي
+- [ ] دمج مع Hyper Mode الحالي
+- [ ] إنشاء API endpoints جديدة
+- [ ] اختبار النظام المدمج
+- [ ] توثيق التغييرات الجديدة
