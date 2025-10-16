@@ -192,7 +192,7 @@ export class EnhancedFilterAnalyzer {
    */
   private static createProcessingSteps(
     mode: OperationMode,
-    filters: FlexibleFilters | AdvancedFilters,
+    _filters: FlexibleFilters | AdvancedFilters,
     analysis: FilterAnalysis,
   ): ProcessingStep[] {
     const steps: ProcessingStep[] = []

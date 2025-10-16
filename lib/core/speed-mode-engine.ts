@@ -107,17 +107,7 @@ export class SpeedModeEngine {
     return sortedResults
   }
 
-  private getGenerationRatios(strategy: any): { pattern: number; preference: number; random: number } {
-    if (strategy.name === "pattern_variation") {
-      return { pattern: 0.4, preference: 0.3, random: 0.3 }
-    }
-    if (strategy.name === "time_based_variation") {
-      const hour = new Date().getHours()
-      const isDay = hour >= 6 && hour < 18
-      return isDay ? { pattern: 0.6, preference: 0.3, random: 0.1 } : { pattern: 0.5, preference: 0.2, random: 0.3 }
-    }
-    return { pattern: 0.6, preference: 0.3, random: 0.1 }
-  }
+  
 
   private sortWithDiversity(results: SpeedModeResult[], strategy: any): SpeedModeResult[] {
     if (strategy.name === "pattern_variation") {
@@ -208,65 +198,13 @@ export class SpeedModeEngine {
     return word
   }
 
-  private generateFromPreferences(filters: EnhancedFilters, count: number): string[] {
-    const words: string[] = []
-    return words
-  }
+  
 
-  private generateRandomSmart(filters: EnhancedFilters, count: number, strategy?: any): string[] {
-    const words: string[] = []
-    const { min = 3, max = 12 } = filters.length || {}
+  
 
-    const timeSeed = strategy?.name === "time_based_variation" ? Date.now() % 1000 : 0
+  
 
-    for (let i = 0; i < count; i++) {
-      const length = Math.floor((Math.random() + timeSeed / 10000) * (max - min + 1)) + min
-      let word = ""
-
-      for (let j = 0; j < length; j++) {
-        const isVowel = j === 0 ? Math.random() > 0.3 : this.shouldBeVowel(word)
-        word += isVowel ? this.getRandomVowel() : this.getRandomConsonant(word)
-      }
-
-      words.push(word)
-    }
-
-    return words
-  }
-
-  private shouldBeVowel(currentWord: string): boolean {
-    if (currentWord.length === 0) return Math.random() > 0.7
-
-    const lastChar = currentWord[currentWord.length - 1]
-    const vowels = "aeiou"
-
-    if (!vowels.includes(lastChar)) {
-      return Math.random() > 0.4
-    }
-
-    return Math.random() > 0.7
-  }
-
-  private getRandomVowel(): string {
-    const vowels = "aeiou"
-    return vowels[Math.floor(Math.random() * vowels.length)]
-  }
-
-  private getRandomConsonant(currentWord: string): string {
-    const consonants = "bcdfghjklmnpqrstvwxyz"
-    let availableConsonants = consonants
-
-    if (currentWord.length > 0) {
-      const lastChar = currentWord[currentWord.length - 1]
-      if ("sxz".includes(lastChar)) {
-        availableConsonants = availableConsonants.replace(/[hszx]/g, "")
-      }
-    }
-
-    return availableConsonants[Math.floor(Math.random() * availableConsonants.length)]
-  }
-
-  private analyzeWord(word: string, filters: EnhancedFilters): SpeedModeResult {
+  private analyzeWord(word: string, _filters: EnhancedFilters): SpeedModeResult {
     if (this.wordCache.has(word)) {
       return this.wordCache.get(word)!
     }

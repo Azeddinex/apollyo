@@ -1,4 +1,4 @@
-use client
+"use client"
 import { useState, useEffect } from "react"
 import { Search, Loader2, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"

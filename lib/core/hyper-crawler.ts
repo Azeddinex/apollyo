@@ -22,14 +22,12 @@ export type CrawlResult = {
 export class HyperCrawler {
   private agent: InternalIntelligenceAgent
   private sessionManager: SessionManager
-  private crawledCache: Map<string, WordResult>
   private sources: CrawlSource[]
   private allAvailableSources: CrawlSource[]
 
   constructor() {
     this.agent = new InternalIntelligenceAgent()
     this.sessionManager = new SessionManager()
-    this.crawledCache = new Map()
     this.sources = this.initializeSources()
     this.allAvailableSources = this.initializeAllSources()
   }

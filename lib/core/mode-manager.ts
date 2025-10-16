@@ -33,8 +33,6 @@ export type WordResult = {
 export class AdvancedModeManager {
   private speedEngine: SpeedModeEngine
   private intelligenceAgent: InternalIntelligenceAgent
-  private currentMode: OperationMode = "balanced"
-
   constructor() {
     this.speedEngine = new SpeedModeEngine()
     this.intelligenceAgent = new InternalIntelligenceAgent()
@@ -45,7 +43,6 @@ export class AdvancedModeManager {
     filters: EnhancedFilters,
     mode: OperationMode = "balanced",
   ): Promise<WordResult[]> {
-    this.currentMode = mode
     const config = this.getModeConfig(mode)
 
     let results: WordResult[] = []
@@ -90,7 +87,7 @@ export class AdvancedModeManager {
   }
 
   private async executeBalancedMode(
-    query: string,
+    _query: string,
     filters: EnhancedFilters,
     config: ModeConfig,
   ): Promise<WordResult[]> {
@@ -105,7 +102,7 @@ export class AdvancedModeManager {
   }
 
   private async executePrecisionMode(
-    query: string,
+    _query: string,
     filters: EnhancedFilters,
     config: ModeConfig,
   ): Promise<WordResult[]> {

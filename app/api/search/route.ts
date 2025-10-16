@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     }
 
     const searchEngine = new SearchEngine()
-    let results
+    let results: any
 
     try {
       const searchPromise = searchEngine.search(
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
       )
 
       results = await Promise.race([searchPromise, timeoutPromise])
-      console.log("[v0] API: Search completed with", results.length, "results")
+      console.log("[v0] API: Search completed with", Array.isArray(results) ? results.length : 0, "results")
     } catch (searchError) {
       console.error("[v0] API: Search execution error:", searchError)
 

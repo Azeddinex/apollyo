@@ -21,7 +21,7 @@ export class TextFilterAgent extends BaseFilterAgent {
     this.patterns = patterns.map(p => new RegExp(p, 'i'))
   }
   
-  async apply(data: any, context: any): Promise<FilterResult> {
+  async apply(data: any, _context: any): Promise<FilterResult> {
     const startTime = performance.now()
     
     // Type check
