@@ -267,7 +267,7 @@ export default function AppollyoApp() {
                   : "Hyper Mode will scrape the web using all advanced filters for deep discovery."}
               </p>
               <div className="text-xs sm:text-sm text-muted-foreground">
-                Configure your filters and click "Start Search" to begin.
+                Configure your filters and click &quot;Start Search&quot; to begin.
               </div>
             </div>
           </Card>
