@@ -32,13 +32,11 @@ export type ValidationResult = {
 export class InternalIntelligenceAgent {
   private memory: LearningMemory
   private validationPatterns: Map<string, RegExp>
-  private englishPatterns: Set<string>
   private rarityThreshold = 0.3
 
   constructor() {
     this.memory = this.initializeMemory()
     this.validationPatterns = this.initializeValidationPatterns()
-    this.englishPatterns = this.initializeEnglishPatterns()
   }
 
   private initializeMemory(): LearningMemory {
@@ -79,34 +77,7 @@ export class InternalIntelligenceAgent {
     ])
   }
 
-  private initializeEnglishPatterns(): Set<string> {
-    // أنماط مقطعية شائعة في الإنجليزية
-    return new Set([
-      "ing",
-      "tion",
-      "ment",
-      "ness",
-      "able",
-      "ible",
-      "ful",
-      "less",
-      "ly",
-      "ity",
-      "ance",
-      "ence",
-      "dom",
-      "ship",
-      "hood",
-      "ism",
-      "er",
-      "est",
-      "ed",
-      "s",
-      "es",
-      "'s",
-      "s'",
-    ])
-  }
+  
 
   public validateEnglishWord(word: string): ValidationResult {
     const issues: string[] = []

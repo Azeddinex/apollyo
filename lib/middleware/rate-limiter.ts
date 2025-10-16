@@ -12,7 +12,7 @@ export function rateLimit(
   limit: number = 10,
   windowMs: number = 60000
 ): NextResponse | null {
-  const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
   const now = Date.now()
   
   const record = store.get(ip)
